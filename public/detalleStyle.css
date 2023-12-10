@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+}
+nav{
+    padding: 10px;
+    background-color: lightgray;
+}
+body{
+    background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F548%2Fthumb-1920-548134.jpg&f=1&nofb=1&ipt=9319547e3c0178d584791993ab603a5f8921bd7d102dc4f3daa48c09d1b463d0&ipo=images); 
+    background-size:auto; /* Ajusta la imagen para cubrir todo el fondo */
+    background-attachment: fixed; /* Mantiene la imagen fija en su posición */
+    background-position: center; /* Centra la imagen en el fondo */
+    color: #fff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+}
+.card-body{
+    border-width: 1cap;
+    border: solid darkgray;
+    
+}
+.reseña-usuario{
+    border-radius: 5px ;
+}
+.card{
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px #555;
+    color: #fff;
+    border: 6px solid white;
+}
+.card-hover{
+    border: 7px solid rgb(25, 238, 238);
+    transition: 0.41s;
+    &:hover {
+        border: 7px solid rgb(211, 247, 247);
+    }
+}
+.partner{
+    
+    color: yellow;
+}
+h6{
+    color: lightgrey;
+}
+
+.empty-message {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+}

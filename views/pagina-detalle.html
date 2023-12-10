@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarma Detalle</title>
+    <link rel="icon" href="https://i.postimg.cc/vmDHR1gn/Z.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
+    <link rel="stylesheet" rel="stylesheet" href="/detalleStyle.css">
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="btn btn-secondary">Ver todos los elementos</a>
+    </nav>
+    <div class="container mt-5">
+        <!-- Atributos e imagen2-->
+
+        <!-- AQui se han añadido los atributos que recibimos del form, cuidado con la sntaxis pues es diferente a la de index-->
+
+        <div class="card">
+            <img src="{{post.url}}"
+                alt="Epic Fantasy">
+            <div class="card-body">
+                <h4 class="card-title text-center">{{post.title}}</h4>
+                <p class="card-text">Empresa desarrolladora: {{post.developer}}</p>
+                <p class="card-text"> {{post.description}}
+                </p>
+                <p class="card-text">Fecha de creación: {{post.date}}</p>
+                {{#post.contributor}}
+                <p class="partner text-center">¡Colaborador oficial!</p>
+                {{/post.contributor}}
+                <a href="/post/edit/{{post.id}}" class="btn btn-primary">Editar</a>
+                <a href="/post/delete/{{post.id}}" class="btn btn-danger">Borrar</a>
+            </div>
+        </div>
+
+
+        <!-- Subelementos -->
+        
+        <div class="mt-5 card">
+            <div class="card-body">
+                <h5 class="card-title">Reseñas</h5>
+                {{^subPosts}}  <!--Si no hay subelementos, se renderizara el siguiente codigo html--> <!-- prueba a comentar los posts por defecto de zarmaService para ver como se mostraria-->
+
+                <p class="empty-message">Esto está algo vacío...</p>
+    
+        
+        {{/subPosts}}
+                {{#subPosts}}
+                <div class="card-body reseña-usuario">
+                    <h6 class="card-text">{{user}}</h6>
+                    <p class="fs-6 lh-sm">
+                        {{review}}
+                    </p>
+                </div>
+                {{/subPosts}}
+
+            </div>
+        </div>
+
+
+        <!-- Formulario para crear un nuevo subelemento, es el unico con hover para indicar que
+        es el unico con el que se puede interactuar sin contar botones-->
+        <div class="mt-5 card card-hover">
+            <div class="card-body">
+                <h5>Añadir Reseña</h5>
+                <div card="card-body">
+                    <form role="form" action="/post/{{post.id}}/subpost" method="POST">
+                        <label for="user" class="form-label">Usuario (Solo caracteres alfanuméricos)</label>
+                        <input type="text" class="form-control" id="user" name="user" required pattern="[A-Za-z0-9]+" maxlength="20">
+                        <label for="review" class="form-label">Reseña</label>
+                        <textarea type="text" class="form-control" id="review" name="review" required maxlength="1000" rows="10"></textarea>
+
+
+
+                        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

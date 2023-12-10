@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Error</title>
+    <style>
+        body {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F548%2Fthumb-1920-548134.jpg&f=1&nofb=1&ipt=9319547e3c0178d584791993ab603a5f8921bd7d102dc4f3daa48c09d1b463d0&ipo=images);
+    background-size: auto;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 48px;
+    margin-top: 100px;
+    color: rgb(88, 252, 175);
+}
+
+p {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.button {
+    margin-top: 20px;
+    border: 1px solid rgba(10, 180, 180, 1);
+    background: rgba(20, 20, 20, .6);
+    font-size: 18px;
+    color: white;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.button:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 25px;
+}
+
+/* Agregado para adaptarse al estilo general */
+
+.card-body {
+    border-width: 1px;
+    border: solid darkgray;
+}
+
+.reseña-usuario {
+    border-radius: 5px;
+}
+
+.card {
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px #555;
+    color: #fff;
+    border: 6px solid white;
+}
+
+.card-hover {
+    border: 7px solid rgb(25, 238, 238);
+    transition: 0.41s;
+}
+
+.card-hover:hover {
+    border: 7px solid rgb(211, 247, 247);
+}
+
+.partner {
+    color: yellow;
+}
+
+h6 {
+    color: lightgrey;
+}
+    </style>
+</head>
+<body>
+    <h1>{{title}}</h1> <!--cambiar por moustache-->
+    <p>{{message}}</p>
+    <a href="/" class="button">Volver a la página principal</a>
+</body>
+</html>

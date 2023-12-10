@@ -1,0 +1,123 @@
+
+<!DOCTYPE html> <!--caracteristicas comunes -->
+<html lang="es">
+
+<head> <!--Cabecera de la pestaña-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Para que se adapte a la pantalla. Sin zoom-->
+    <title>Zarma Main Page</title>
+
+    <link rel="icon" href="https://i.postimg.cc/vmDHR1gn/Z.jpg"> <!--Icono de la pestaña-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--importamos bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
+    <link type="text/css" rel="stylesheet" href="/style.css" /> <!--referencia a la pagina css-->
+
+</head>
+
+<body> <!-- Cuerpo de la página -->
+    <header>
+        <div class="logo-container">
+            <a href="/">
+                <img class="logo" src=https://i.postimg.cc/vmDHR1gn/Z.jpg alt="Zarma">
+            </a>
+
+        </div>
+        <div class="title-container d-flex justify-content-center"> <!--d-flex es display flex, justify-content-center es para centrar.
+        Esto sustituye a la implementacion en css con flexbox, sin embargo solo se mostrara este ejemplo. Para los demas  externalizaremos el estilo al archivo css, para aportar claridad y hacer que el archivo html sea más conciso -->
+
+            <a class='title' ><img src='https://i.postimg.cc/Wtf65Fqn/ZARMA.jpg' alt='ZARMA' /></a>
+        </div>
+    </header>
+
+    <div class="sub-container container mb-5 mt-4">
+        <h2 class="subtitle text-center mb-4 mt-4">Nuestro motor de videojuegos ha inspirado a grandes desarrolladores a
+            alcanzar sus mayores logros. Por ello, también son los nuestros...</h2>
+    </div>
+
+<!-- Elementos de la página,usaran el sistema de card de bootstrap -->
+
+
+{{#posts}} <!--posts es el array de elementos que recibimos del controlador, y que se renderizan en la pagina. El simbolo # indica que se va a iterar sobre el array, y que se va a renderizar el contenido de la pagina tantas veces como elementos haya en el array. -->
+
+
+<!--resumiendo, el codigo html que se encuentra entre las llaves se renderizara (completará) tantas veces como elementos haya en el array posts (por defecto 2, pero podemos añadir más, para eso ir a ZarmaService). Cada vez que se renderice, se sustituiran los valores de los atributos entre {{}} por los valores del elemento del array que se este iterando en ese momento. -->
+    <div class="container-fluid mb-5">
+        
+        
+        
+        <div class="row">
+      
+            
+            <div class="col-md-4 mb-md-0 mb-3 img-fluid ">
+                
+                
+                <img src="{{url}}" class="img-thumbnail " alt="Epic Fantasy">
+            </div>
+    
+            <div class="col-md-8">
+           
+                
+                <div class="card text-center">
+                 
+                    
+                    <a class="game" href="/post/{{id}}">
+                        <!-- Enlace a la página de detalle del elemento id-->
+                    
+                        
+                        <div class="card-header">
+                            
+                            
+                            <h5 class="text-card-header">{{title}}</h5>
+                           
+                        </div>
+    
+                        <div class="card-body">
+                         
+                           
+                            <h2 class="card-title">Empresa desarrolladora:  {{developer}}</h2>
+                     
+                            
+                            <p class="card-text">{{description}}</p>
+                           
+                            
+                            <p class="card-text text-center">{{date}}</p>
+                            <!--La fecha tambien debe recibirse, pendiente-->
+                            {{#contributor}}
+                            <p class="contributor text-center">¡Colaborador oficial!</p>
+                            {{/contributor}}
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{{/posts}}
+  
+    {{^posts}}  <!--Si no hay elementos en el array posts, se renderizara el siguiente codigo html--> <!-- prueba a comentar los posts por defecto de zarmaService para ver como se mostraria-->
+
+    <p class="empty-message">Esto está algo vacío...</p>
+
+    <!-- Cambiar a una clase css propia-->
+    {{/posts}}
+   
+
+    <div class="text-center mt-4">
+        <a href="/add-elemento" class="btn btn-success">Crear Nuevo Elemento</a>
+        <!-- cada href debe hacerse relativo (creo que se llama asi), es decir, usando /. el prefijo html ya esta definido en app.js
+        (app.engine('html', mustacheExpress(), '.html');)
+        -->
+    </div>
+
+
+    <footer class="footer text-center mt-4"> 
+        <p>&copy; 2023 Zarma</p> 
+
+        <!-- cuando no hay elementos el footer se ve algo extraño. nada muy importante-->
+    </footer>
+</body>
+
+</html>
